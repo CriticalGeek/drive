@@ -16,7 +16,7 @@ export default withRouter((props) => {
   }
 
   return (
-    <View style={styles.appbar}>
+    <View style={{...styles.appbar, ...props.style}}>
       {backward}
       <Text style={styles.title}>DRIVE</Text>
       <View style={styles.button} />

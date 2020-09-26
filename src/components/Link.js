@@ -6,7 +6,9 @@ import styles from '../scss/components/link.scss';
 
 export default withRouter((props) => {
   return (
-    <TouchableOpacity onPress={() => props.history.push(props.to)}>
+    <TouchableOpacity
+      style={props.style}
+      onPress={() => props.history.push(props.to)}>
       <Text style={styles.link}>{props.children}</Text>
     </TouchableOpacity>
   );
