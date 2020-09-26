@@ -1,0 +1,22 @@
+%button {
+  background: #000;
+  padding: 14px 24px;
+  border-radius: 8px;
+}
+
+.button {
+  @extend %button;
+}
+
+.buttonBlock {
+  @extend %button;
+  width: 100%;
+}
+
+.buttonText {
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Source Sans Pro';
+  text-align: center;
+}
