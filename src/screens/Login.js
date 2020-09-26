@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 
-import layout from '../scss/layout/Login.scss';
-import styles from '../scss/screens/Login.scss';
+import layout from '../scss/layout/login.scss';
+import styles from '../scss/screens/login.scss';
 
 import Heading from '../components/Heading';
 import Text from '../components/Text';
