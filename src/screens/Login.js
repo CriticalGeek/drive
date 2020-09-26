@@ -18,24 +18,17 @@ class Login extends React.Component {
           style={styles.ilustration}
           source={require('../assets/img/car.png')}
         />
+
         <Heading>Bienvenido a DRIVE</Heading>
         <Text>La forma inteligente de manejar tu auto</Text>
 
-        <View style={styles.field}>
-          <Textfield placeholder="Correo electrónico" />
-        </View>
+        <Textfield style={styles.field} placeholder="Correo electrónico" />
+        <Textfield placeholder="Contraseña" secureEntry />
 
-        <View style={styles.field}>
-          <Textfield placeholder="Contraseña" secureEntry />
-        </View>
-
-        <View style={styles.field}>
-          <Button block>Iniciar sesión</Button>
-        </View>
-
-        <View style={styles.field}>
-          <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>
-        </View>
+        <Button style={styles.button} block>
+          Iniciar sesión
+        </Button>
+        <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>
       </View>
     );
   }
