@@ -1,9 +1,44 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {Image, View} from 'react-native';
 
-export default ({history}) => (
-  <View>
-    <Text>Login page</Text>
-    <Button title="to signup screen" onPress={() => history.push('/signup')} />
-  </View>
-);
+import layout from '../scss/layout/Login.scss';
+import styles from '../scss/screens/Login.scss';
+
+import Heading from '../components/Heading';
+import Text from '../components/Text';
+import Textfield from '../components/Textfield';
+import Button from '../components/Button';
+import Link from '../components/Link';
+
+class Login extends React.Component {
+  render() {
+    return (
+      <View style={layout.login}>
+        <Image
+          style={styles.ilustration}
+          source={require('../assets/img/car.png')}
+        />
+        <Heading>Bienvenido a DRIVE</Heading>
+        <Text>La forma inteligente de manejar tu auto</Text>
+
+        <View style={styles.field}>
+          <Textfield placeholder="Correo electrónico" />
+        </View>
+
+        <View style={styles.field}>
+          <Textfield placeholder="Contraseña" secureEntry />
+        </View>
+
+        <View style={styles.field}>
+          <Button block>Iniciar sesión</Button>
+        </View>
+
+        <View style={styles.field}>
+          <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>
+        </View>
+      </View>
+    );
+  }
+}
+
+export default Login;
