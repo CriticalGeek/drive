@@ -1,0 +1,21 @@
+$logo_size: 70px;
+
+.user {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 8px 24px;
+  background: #f2f6f9;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  width: $logo_size;
+  height: $logo_size;
+  margin-right: 24px;
+}
