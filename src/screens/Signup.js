@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, BackHandler} from 'react-native';
 
 import layout from '../scss/layout/login.scss';
 import styles from '../scss/screens/signup.scss';
@@ -10,6 +10,30 @@ import Textfield from '../components/Textfield';
 import Button from '../components/Button';
 
 class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+  }
+
+  UNSAFE_componentWillMount() {
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
+  }
+
+  handleBackButtonClick() {
+    this.props.history.goBack();
+    return true;
+  }
+
   render() {
     return (
       <View>
