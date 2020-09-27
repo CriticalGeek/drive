@@ -7,6 +7,7 @@ import Text from '../components/Text';
 
 export default (props) => {
   let mode = styles.button;
+  let callback = () => '';
 
   if (props.block) {
     mode = styles.block;
@@ -15,10 +16,14 @@ export default (props) => {
     mode = styles.outlined;
   }
 
+  if (props.onPress) {
+    callback = () => props.onPress();
+  }
+
   return (
     <TouchableOpacity
       style={{...mode, ...props.style}}
-      onPress={() => props.onPress()}>
+      onPress={() => callback()}>
       <Text
         style={props.outlined ? styles.buttonTextOutlined : styles.buttonText}>
         {props.children}
