@@ -1,10 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import styles from '../scss/components/ticket.scss';
+import styles from '~/scss/components/ticket.scss';
 
-import Heading from '../components/Heading';
-import Text from '../components/Text';
+import Heading from './Heading';
+import Text from './Text';
 
 export default ({item, style}) => {
   return (

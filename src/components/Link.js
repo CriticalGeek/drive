@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 import {withRouter} from 'react-router-native';
 
-import styles from '../scss/components/link.scss';
+import styles from '~/scss/components/link.scss';
 
 export default withRouter((props) => {
   return (

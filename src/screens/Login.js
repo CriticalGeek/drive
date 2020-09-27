@@ -2,14 +2,10 @@ import React from 'react';
 import {Image, View} from 'react-native';
 import {withRouter} from 'react-router-native';
 
-import layout from '../scss/layout/login.scss';
-import styles from '../scss/screens/login.scss';
+import layout from '~/scss/layout/login.scss';
+import styles from '~/scss/screens/login.scss';
 
-import Heading from '../components/Heading';
-import Text from '../components/Text';
-import Textfield from '../components/Textfield';
-import Button from '../components/Button';
-import Link from '../components/Link';
+import {Heading, Text, Textfield, Button, Link} from '~/components';
 
 class Login extends React.Component {
   render() {
@@ -17,7 +13,7 @@ class Login extends React.Component {
       <View style={layout.login}>
         <Image
           style={styles.ilustration}
-          source={require('../assets/img/car.png')}
+          source={require('~/assets/img/car.png')}
         />
 
         <Heading>Bienvenido a DRIVE</Heading>

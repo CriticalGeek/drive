@@ -2,11 +2,11 @@ import React from 'react';
 import {View, BackHandler} from 'react-native';
 
 import layout from '~/scss/layout/login.scss';
-import styles from '~/scss/screens/signup.scss';
+import styles from '~/scss/screens/newcard.scss';
 
 import {Appbar, Heading, Textfield, Button} from '~/components';
 
-class Signup extends React.Component {
+class NewCard extends React.Component {
   constructor(props) {
     super(props);
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
@@ -37,26 +37,18 @@ class Signup extends React.Component {
         <Appbar hasBackward />
 
         <View style={layout.login}>
-          <Heading style={styles.heading}>
-            Sube a bordo y comienza a disfrutar de DRIVE.
-          </Heading>
+          <Heading style={styles.heading}>Agrega una nueva tarjeta</Heading>
 
-          <Textfield style={styles.field} placeholder="Nombre completo" />
-          <Textfield style={styles.field} placeholder="Correo electrónico" />
-          <Textfield
-            style={styles.field}
-            placeholder="Contraseña"
-            secureEntry
-          />
-          <Textfield placeholder="Confirma tu contraseña" secureEntry />
+          <Textfield style={styles.field} placeholder="Numero de tarjeta" />
+          <Textfield style={styles.field} placeholder="MM" />
+          <Textfield style={styles.field} placeholder="YYYY" />
+          <Textfield style={styles.field} placeholder="CVV" />
 
-          <Button style={styles.button} block>
-            Registrarme
-          </Button>
+          <Button block>Agregar tarjeta</Button>
         </View>
       </View>
     );
   }
 }
 
-export default Signup;
+export default NewCard;

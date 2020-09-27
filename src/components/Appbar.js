@@ -2,16 +2,18 @@ import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {withRouter} from 'react-router-native';
 
-import styles from '../scss/components/appbar.scss';
+import styles from '~/scss/components/appbar.scss';
 
-import Heading from '../components/Heading';
+import Heading from './Heading';
 
 export default withRouter((props) => {
   var backward = <View style={styles.button} />;
 
   if (props.hasBackward) {
     backward = (
-      <TouchableOpacity onPress={() => props.history.goBack()}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => props.history.goBack()}>
         <Heading>B</Heading>
       </TouchableOpacity>
     );

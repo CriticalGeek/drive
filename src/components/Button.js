@@ -1,9 +1,9 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 
-import styles from '../scss/components/button.scss';
+import styles from '~/scss/components/button.scss';
 
-import Text from '../components/Text';
+import Text from './Text';
 
 export default (props) => {
   let mode = styles.button;

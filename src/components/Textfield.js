@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput} from 'react-native';
 
-import styles from '../scss/components/textfield.scss';
+import styles from '~/scss/components/textfield.scss';
 
 export default (props) => {
   return (

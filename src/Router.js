@@ -8,6 +8,7 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import Tickets from './screens/Tickets';
 import Cards from './screens/Cards';
+import NewCard from './screens/NewCard';
 
 class AppRouter extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class AppRouter extends React.Component {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/tickets" component={Tickets} />
                 <Route exact path="/cards" component={Cards} />
+                <Route exact path="/new-card" component={NewCard} />
               </Switch>
             </KeyboardAwareScrollView>
           </SafeAreaView>

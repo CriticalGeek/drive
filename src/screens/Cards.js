@@ -1,14 +1,10 @@
 import React from 'react';
 import {View, BackHandler} from 'react-native';
 
-import layout from '../scss/layout/default.scss';
-import styles from '../scss/screens/cards.scss';
+import layout from '~/scss/layout/default.scss';
+import styles from '~/scss/screens/cards.scss';
 
-import Appbar from '../components/Appbar';
-import User from '../components/User';
-import Text from '../components/Text';
-import Button from '../components/Button';
-import Card from '../components/Card';
+import {Appbar, User, Text, Button, Card} from '~/components';
 
 class Tickets extends React.Component {
   constructor(props) {
