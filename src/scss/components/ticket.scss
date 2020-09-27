@@ -1,0 +1,18 @@
+.ticket {
+  display: flex;
+  flex-direction: row;
+}
+
+.date {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f6f9;
+  margin-right: 16px;
+}
+
+.amount {
+  margin-top: 12px;
+}
