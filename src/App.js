@@ -1,5 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
+
 import React from 'react';
-import {StatusBar, View} from 'react-native';
+import {StatusBar, View, SafeAreaView} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 import AppRoute from './Router';
 
@@ -8,7 +11,12 @@ class App extends React.Component {
     return (
       <View style={{flex: 1, backgroundColor: '#fff'}}>
         <StatusBar />
-        <AppRoute />
+
+        <SafeAreaView>
+          <KeyboardAwareScrollView>
+            <AppRoute />
+          </KeyboardAwareScrollView>
+        </SafeAreaView>
       </View>
     );
   }
