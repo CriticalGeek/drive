@@ -1,5 +1,18 @@
 .text {
   font-size: 16px;
   line-height: 20px;
-  font-family: 'Source Sans Pro';
+  font-family: 'SourceSansPro-Regular';
+}
+
+.bold {
+  font-family: 'SourceSansPro-SemiBold';
+}
+
+.light {
+  font-family: 'SourceSansPro-Light';
+}
+
+.small {
+  font-size: 12px;
+  line-height: 16px;
 }
