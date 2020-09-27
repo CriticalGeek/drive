@@ -1,2 +1,23 @@
-.layout--default {
+.appbar {
+  background: #f2f6f9;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  padding-left: 120px;
+  padding-bottom: 36px;
+  background: #f2f6f9;
+}
+
+.navigationButton {
+  margin-right: 8px;
+}
+
+.main {
+  padding: 24px;
+}
+
+.mainSubtitle {
+  margin-bottom: 8px;
 }
