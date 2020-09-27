@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
+import {withRouter} from 'react-router-native';
 
 import layout from '../scss/layout/login.scss';
 import styles from '../scss/screens/login.scss';
@@ -25,7 +26,10 @@ class Login extends React.Component {
         <Textfield style={styles.field} placeholder="Correo electrónico" />
         <Textfield placeholder="Contraseña" secureEntry />
 
-        <Button style={styles.button} block>
+        <Button
+          style={styles.button}
+          onPress={() => this.props.history.push('/tickets')}
+          block>
           Iniciar sesión
         </Button>
         <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>
@@ -34,4 +38,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
