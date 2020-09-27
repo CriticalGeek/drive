@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.type {
+  margin-right: 16px;
+}
