@@ -1,14 +1,14 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
 import styles from '~/scss/components/ticket.scss';
 
 import Heading from './Heading';
 import Text from './Text';
 
-export default ({item, style}) => {
+export default ({ item, style }) => {
   return (
-    <View style={{...styles.ticket, ...style}}>
+    <View style={{ ...styles.ticket, ...style }}>
       <View style={styles.date}>
         <Heading>01</Heading>
         <Text>Ene</Text>

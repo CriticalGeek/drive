@@ -1,10 +1,10 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
 import layout from '~/scss/layout/default.scss';
 import styles from '~/scss/screens/tickets.scss';
 
-import {Appbar, User, Text, Button, Ticket} from '~/components';
+import { Appbar, User, Text, Button, Ticket } from '~/components';
 
 class Tickets extends React.Component {
   constructor(props) {

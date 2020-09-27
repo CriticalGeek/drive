@@ -1,7 +1,7 @@
 import React from 'react';
-import {NativeRouter, Switch, Route, Redirect} from 'react-router-native';
+import { NativeRouter, Switch, Route, Redirect } from 'react-router-native';
 
-import {Login, Signup, Tickets, Cards, NewCard} from '~/screens';
+import { Login, Signup, Tickets, Cards, NewCard } from '~/screens';
 
 class AppRouter extends React.Component {
   render() {

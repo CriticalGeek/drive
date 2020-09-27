@@ -1,6 +1,6 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import {withRouter} from 'react-router-native';
+import { TouchableOpacity, View } from 'react-native';
+import { withRouter } from 'react-router-native';
 
 import styles from '~/scss/components/appbar.scss';
 
@@ -13,14 +13,15 @@ export default withRouter((props) => {
     backward = (
       <TouchableOpacity
         style={styles.button}
-        onPress={() => props.history.goBack()}>
+        onPress={() => props.history.goBack()}
+      >
         <Heading>B</Heading>
       </TouchableOpacity>
     );
   }
 
   return (
-    <View style={{...styles.appbar, ...props.style}}>
+    <View style={{ ...styles.appbar, ...props.style }}>
       {backward}
       <Heading>DRIVE</Heading>
       <View style={styles.button} />

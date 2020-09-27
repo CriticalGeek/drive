@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import styles from '~/scss/components/button.scss';
 
@@ -22,10 +22,12 @@ export default (props) => {
 
   return (
     <TouchableOpacity
-      style={{...mode, ...props.style}}
-      onPress={() => callback()}>
+      style={{ ...mode, ...props.style }}
+      onPress={() => callback()}
+    >
       <Text
-        style={props.outlined ? styles.buttonTextOutlined : styles.buttonText}>
+        style={props.outlined ? styles.buttonTextOutlined : styles.buttonText}
+      >
         {props.children}
       </Text>
     </TouchableOpacity>

@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, BackHandler} from 'react-native';
+import { View, BackHandler } from 'react-native';
 
 import layout from '~/scss/layout/default.scss';
 import styles from '~/scss/screens/cards.scss';
 
-import {Appbar, User, Text, Button, Card} from '~/components';
+import { Appbar, User, Text, Button, Card } from '~/components';
 
 class Tickets extends React.Component {
   constructor(props) {
@@ -66,7 +66,8 @@ class Tickets extends React.Component {
           <Button
             style={layout.navigationButton}
             onPress={() => this.props.history.push('/tickets')}
-            outlined>
+            outlined
+          >
             Tickets
           </Button>
           <Button>Tarjetas</Button>
@@ -82,7 +83,8 @@ class Tickets extends React.Component {
           <Button
             style={styles.addNewCard}
             onPress={() => this.props.history.push('/new-card')}
-            outlined>
+            outlined
+          >
             + Agregar nueva tarjeta
           </Button>
         </View>

@@ -8,4 +8,4 @@ import Textfield from './Textfield';
 import Ticket from './Ticket';
 import User from './User';
 
-export {Appbar, Button, Card, Heading, Link, Text, Textfield, Ticket, User};
+export { Appbar, Button, Card, Heading, Link, Text, Textfield, Ticket, User };

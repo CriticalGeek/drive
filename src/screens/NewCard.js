@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, BackHandler} from 'react-native';
+import { View, BackHandler } from 'react-native';
 
 import layout from '~/scss/layout/login.scss';
 import styles from '~/scss/screens/newcard.scss';
 
-import {Appbar, Heading, Textfield, Button} from '~/components';
+import { Appbar, Heading, Textfield, Button } from '~/components';
 
 class NewCard extends React.Component {
   constructor(props) {

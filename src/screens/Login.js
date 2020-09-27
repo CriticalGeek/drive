@@ -1,11 +1,11 @@
 import React from 'react';
-import {Image, View} from 'react-native';
-import {withRouter} from 'react-router-native';
+import { Image, View } from 'react-native';
+import { withRouter } from 'react-router-native';
 
 import layout from '~/scss/layout/login.scss';
 import styles from '~/scss/screens/login.scss';
 
-import {Heading, Text, Textfield, Button, Link} from '~/components';
+import { Heading, Text, Textfield, Button, Link } from '~/components';
 
 class Login extends React.Component {
   render() {
@@ -25,7 +25,8 @@ class Login extends React.Component {
         <Button
           style={styles.button}
           onPress={() => this.props.history.push('/tickets')}
-          block>
+          block
+        >
           Iniciar sesión
         </Button>
         <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>

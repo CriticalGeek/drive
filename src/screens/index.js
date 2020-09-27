@@ -4,4 +4,4 @@ import NewCard from './NewCard';
 import Signup from './Signup';
 import Tickets from './Tickets';
 
-export {Cards, Login, NewCard, Signup, Tickets};
+export { Cards, Login, NewCard, Signup, Tickets };

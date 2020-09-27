@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
 import styles from '~/scss/components/text.scss';
 
@@ -18,7 +18,9 @@ export default (props) => {
   }
 
   return (
-    <Text style={{...styles.text, ...fontWeight, ...fontSize, ...props.style}}>
+    <Text
+      style={{ ...styles.text, ...fontWeight, ...fontSize, ...props.style }}
+    >
       {props.children}
     </Text>
   );
