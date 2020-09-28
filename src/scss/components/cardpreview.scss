@@ -1,0 +1,26 @@
+.cardpreview {
+  width: 340px;
+  height: 200px;
+  border-radius: 8px;
+  background: #cfd9de;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.img {
+  width: 60px;
+  height: 40px;
+}
+
+.cardText {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}

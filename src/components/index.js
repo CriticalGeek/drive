@@ -7,5 +7,17 @@ import Text from './Text';
 import Textfield from './Textfield';
 import Ticket from './Ticket';
 import User from './User';
+import CardPreview from './CardPreview';
 
-export { Appbar, Button, Card, Heading, Link, Text, Textfield, Ticket, User };
+export {
+  Appbar,
+  Button,
+  Card,
+  Heading,
+  Link,
+  Text,
+  Textfield,
+  Ticket,
+  User,
+  CardPreview,
+};

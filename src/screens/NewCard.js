@@ -4,11 +4,19 @@ import { View, BackHandler } from 'react-native';
 import layout from '~/scss/layout/login.scss';
 import styles from '~/scss/screens/newcard.scss';
 
-import { Appbar, Heading, Textfield, Button } from '~/components';
+import { Appbar, Heading, Textfield, Button, CardPreview } from '~/components';
 
 class NewCard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      card: {
+        name: 'Antonio Alvarez',
+        number: '0248',
+        img: 'https://drive-assets.s3.us-east-2.amazonaws.com/visa.png',
+      },
+    };
+
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
   }
 
@@ -39,10 +47,10 @@ class NewCard extends React.Component {
         <View style={layout.login}>
           <Heading style={styles.heading}>Agrega una nueva tarjeta</Heading>
 
-          <Textfield style={styles.field} placeholder="Numero de tarjeta" />
-          <Textfield style={styles.field} placeholder="MM" />
-          <Textfield style={styles.field} placeholder="YYYY" />
-          <Textfield style={styles.field} placeholder="CVV" />
+          <CardPreview style={styles.cardpreview} info={this.state.card} />
+
+          <Textfield style={styles.field} placeholder="4 digitos de tarjeta" />
+          <Textfield style={styles.field} placeholder="Nombre del titular" />
 
           <Button block>Agregar tarjeta</Button>
         </View>
