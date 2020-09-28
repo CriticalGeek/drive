@@ -5,20 +5,23 @@ import { Provider } from 'react-redux';
 import { StatusBar, View, SafeAreaView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
 
-import AppRoute from './Router';
+import AppRoute from '~/Router';
+import store from '~/redux/store';
 
 class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <StatusBar />
+      <Provider store={store}>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
+          <StatusBar />
 
-        <SafeAreaView>
-          <KeyboardAwareScrollView>
-            <AppRoute />
-          </KeyboardAwareScrollView>
-        </SafeAreaView>
-      </View>
+          <SafeAreaView>
+            <KeyboardAwareScrollView>
+              <AppRoute />
+            </KeyboardAwareScrollView>
+          </SafeAreaView>
+        </View>
+      </Provider>
     );
   }
 }

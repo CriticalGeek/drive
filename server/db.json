@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "qildssw@ecallen.com",
+      "password": "$Abc321$",
+      "name": "Rea Hernandez"
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "user": 1,
+      "number": "QHJKFDIUWE",
+      "date": "2020-01-01 12:00:00",
+      "amount": 100
+    },
+    {
+      "id": 2,
+      "user": 1,
+      "number": "IOQKMFPOSD",
+      "date": "2020-01-04 14:00:00",
+      "amount": 20.5
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "user": 1,
+      "numberCard": "0204",
+      "nameCard": "Prueba",
+      "type": 1
+    }
+  ],
+  "imgTypeCard": [
+    {
+      "id": 1,
+      "type": "visa",
+      "img": "imagen visa"
+    },
+    {
+      "id": 2,
+      "type": "master card",
+      "img": "imagen master card"
+    },
+    {
+      "id": 3,
+      "type": "amex",
+      "img": "imagen amex"
+    }
+  ]
+}

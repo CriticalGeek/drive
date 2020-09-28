@@ -1,6 +1,10 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, Alert } from 'react-native';
 import { withRouter } from 'react-router-native';
+import { connect } from 'react-redux';
+import axios from '~/plugins/axios';
+
+import getUser from '~/redux/actions/getUser';
 
 import layout from '~/scss/layout/login.scss';
 import styles from '~/scss/screens/login.scss';
@@ -8,6 +12,48 @@ import styles from '~/scss/screens/login.scss';
 import { Heading, Text, Textfield, Button, Link } from '~/components';
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: '',
+    };
+
+    this.resetState = this.resetState.bind(this);
+    this.validateUser = this.validateUser.bind(this);
+  }
+
+  resetState() {
+    this.setState({
+      email: '',
+      password: '',
+    });
+  }
+
+  validateUser() {
+    if (this.state.email && this.state.password) {
+      axios
+        .get('/users')
+        .then(({ data }) => {
+          let user = data.find((item) => item.email === this.state.email);
+
+          if (user) {
+            if (user.password === this.state.password) {
+              this.resetState();
+              this.props.getUser(this.state);
+              this.props.history.push('/tickets');
+            } else {
+              Alert.alert('Incorrect password');
+            }
+          } else {
+            Alert.alert('user not found');
+          }
+        })
+        .catch(console.error);
+    }
+  }
+
   render() {
     return (
       <View style={layout.login}>
@@ -19,14 +65,20 @@ class Login extends React.Component {
         <Heading>Bienvenido a DRIVE</Heading>
         <Text>La forma inteligente de manejar tu auto</Text>
 
-        <Textfield style={styles.field} placeholder="Correo electrónico" />
-        <Textfield placeholder="Contraseña" secureEntry />
+        <Textfield
+          value={this.state.email}
+          style={styles.field}
+          placeholder="Correo electrónico"
+          onChange={(value) => this.setState({ email: value })}
+        />
+        <Textfield
+          value={this.state.password}
+          placeholder="Contraseña"
+          onChange={(value) => this.setState({ password: value })}
+          secureEntry
+        />
 
-        <Button
-          style={styles.button}
-          onPress={() => this.props.history.push('/tickets')}
-          block
-        >
+        <Button style={styles.button} onPress={() => this.validateUser()} block>
           Iniciar sesión
         </Button>
         <Link to="/signup">¿Nuevo aquí? Registrate gratis</Link>
@@ -35,4 +87,16 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: (user) => dispatch(getUser(user)),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

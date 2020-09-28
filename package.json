@@ -6,10 +6,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "server": "json-server --watch server/db.json",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "axios": "^0.20.0",
+    "json-server": "^0.16.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-keyboard-aware-scrollview": "^2.1.0",
