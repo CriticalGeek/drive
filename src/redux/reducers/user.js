@@ -5,11 +5,7 @@ const initialState = {};
 function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case getUserType:
-      return {
-        email: payload.email,
-        password: payload.password,
-        name: 'Antonio Alvarez',
-      };
+      return payload;
     default:
       return state;
   }

@@ -16,8 +16,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: '1',
+      password: '1',
     };
 
     this.resetState = this.resetState.bind(this);
@@ -41,7 +41,7 @@ class Login extends React.Component {
           if (user) {
             if (user.password === this.state.password) {
               this.resetState();
-              this.props.getUser(this.state);
+              this.props.getUser(user);
               this.props.history.push('/tickets');
             } else {
               Alert.alert('Incorrect password');

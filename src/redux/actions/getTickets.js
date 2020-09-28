@@ -1,9 +1,9 @@
 export const type = 'getTickets';
 
-const getTickets = (id) => {
+const getTickets = (tickets) => {
   return {
     type,
-    payload: id,
+    payload: tickets,
   };
 };
 
