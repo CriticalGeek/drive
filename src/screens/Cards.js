@@ -1,5 +1,11 @@
 import React from 'react';
 import { View, BackHandler } from 'react-native';
+import { connect } from 'react-redux';
+import axios from '~/plugins/axios';
+
+import getPayments from '~/redux/actions/getPayments';
+import getImgTypeCards from '~/redux/actions/getImgTypeCards';
+import deletePayment from '~/redux/actions/deletePayment';
 
 import layout from '~/scss/layout/default.scss';
 import styles from '~/scss/screens/cards.scss';
@@ -10,27 +16,19 @@ class Tickets extends React.Component {
   constructor(props) {
     super(props);
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
-    this.state = {
-      payments: [
-        {
-          id: 1,
-          user: 1,
-          numberCard: '0204',
-          nameCard: 'Prueba',
-          type: 1,
-        },
-        {
-          id: 2,
-          user: 1,
-          numberCard: '4152',
-          nameCard: 'Prueba',
-          type: 1,
-        },
-      ],
-    };
   }
 
   UNSAFE_componentWillMount() {
+    Promise.all([axios.get('/payments'), axios.get('/imgTypeCard')])
+      .then((res) => {
+        let userPayments = res[0].data.filter(
+          (item) => item.user === this.props.user.id,
+        );
+        this.props.getPayments(userPayments);
+        this.props.getImgTypeCards(res[1].data);
+      })
+      .catch(console.error);
+
     BackHandler.addEventListener(
       'hardwareBackPress',
       this.handleBackButtonClick,
@@ -50,9 +48,36 @@ class Tickets extends React.Component {
   }
 
   cardList = () => {
-    return this.state.payments.map((item) => {
-      return <Card style={styles.card} key={item.id} item={item} />;
-    });
+    if (this.props.imgTypeCards.length > 0) {
+      return this.props.payments.map((payment) => {
+        let imgCard = this.props.imgTypeCards.find(
+          (card) => payment.type === card.id,
+        );
+
+        let card = {
+          imgCard: imgCard.img,
+          numberCard: payment.numberCard,
+        };
+
+        return (
+          <Card
+            style={styles.card}
+            key={payment.id}
+            item={card}
+            onDelete={() => this.deleteCard(payment.id)}
+          />
+        );
+      });
+    }
+  };
+
+  deleteCard = (paymentId) => {
+    axios
+      .delete(`/payments/${paymentId}`)
+      .then(({ data }) => {
+        this.props.deletePayment(paymentId);
+      })
+      .catch(console.error);
   };
 
   render() {
@@ -60,7 +85,7 @@ class Tickets extends React.Component {
       <View>
         <Appbar style={layout.appbar} />
 
-        <User />
+        <User user={this.props.user} />
 
         <View style={layout.navigation}>
           <Button
@@ -93,4 +118,20 @@ class Tickets extends React.Component {
   }
 }
 
-export default Tickets;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    payments: state.payments,
+    imgTypeCards: state.imgTypeCards,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPayments: (tickets) => dispatch(getPayments(tickets)),
+    getImgTypeCards: (cards) => dispatch(getImgTypeCards(cards)),
+    deletePayment: (paymentId) => dispatch(deletePayment(paymentId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tickets);

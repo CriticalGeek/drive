@@ -15,8 +15,8 @@ class Tickets extends React.Component {
     super(props);
   }
 
-  async UNSAFE_componentWillMount() {
-    await axios
+  UNSAFE_componentWillMount() {
+    axios
       .get('/tickets')
       .then(({ data }) => {
         let userTickets = data.filter(
