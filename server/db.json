@@ -36,17 +36,17 @@
     {
       "id": 1,
       "type": "visa",
-      "img": "imagen visa"
+      "img": "https://drive-assets.s3.us-east-2.amazonaws.com/visa.png"
     },
     {
       "id": 2,
       "type": "master card",
-      "img": "imagen master card"
+      "img": "https://drive-assets.s3.us-east-2.amazonaws.com/mc.png"
     },
     {
       "id": 3,
       "type": "amex",
-      "img": "imagen amex"
+      "img": "https://drive-assets.s3.us-east-2.amazonaws.com/amex.png"
     }
   ]
 }
