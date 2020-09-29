@@ -47,7 +47,7 @@ class Login extends React.Component {
               Alert.alert('Incorrect password');
             }
           } else {
-            Alert.alert('user not found');
+            Alert.alert('Usuario no registrado');
           }
         })
         .catch(console.error);
