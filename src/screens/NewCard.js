@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, BackHandler } from 'react-native';
+import { View, BackHandler, Alert } from 'react-native';
+import { connect } from 'react-redux';
+import axios from '~/plugins/axios';
+
+import getPayments from '~/redux/actions/getPayments';
+import getImgTypeCards from '~/redux/actions/getImgTypeCards';
+import addPayment from '~/redux/actions/addPayment';
 
 import layout from '~/scss/layout/login.scss';
 import styles from '~/scss/screens/newcard.scss';
@@ -10,11 +16,10 @@ class NewCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: {
-        name: 'Antonio Alvarez',
-        number: '0248',
-        img: 'https://drive-assets.s3.us-east-2.amazonaws.com/visa.png',
-      },
+      name: '',
+      number: '',
+      type: 'visa',
+      img: '',
     };
 
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
@@ -25,6 +30,14 @@ class NewCard extends React.Component {
       'hardwareBackPress',
       this.handleBackButtonClick,
     );
+
+    let card = this.props.imgTypeCards.find(
+      (item) => item.type === this.state.type,
+    );
+
+    this.setState({
+      img: card.img,
+    });
   }
 
   componentWillUnmount() {
@@ -39,6 +52,55 @@ class NewCard extends React.Component {
     return true;
   }
 
+  updateCardType = (value) => {
+    this.setState({ type: value });
+
+    let card = this.props.imgTypeCards.find((item) => item.type === value);
+
+    if (card) {
+      this.setState({ img: card.img });
+    }
+  };
+
+  submitCard = () => {
+    if (this.state.number && this.state.name) {
+      axios
+        .get('/payments')
+        .then(({ data }) => {
+          let paymentsLenght = data.length - 1;
+          let newId = paymentsLenght > 0 ? data[paymentsLenght].id + 1 : 1;
+          let typeId = 1;
+
+          let types = this.props.imgTypeCards.find(
+            (item) => item.type === this.state.type,
+          );
+
+          if (types) {
+            typeId = types.id;
+          }
+
+          let newPayment = {
+            id: newId,
+            user: this.props.user.id,
+            numberCard: this.state.number,
+            nameCard: this.state.name,
+            type: typeId,
+          };
+
+          axios
+            .post('/payments', newPayment)
+            .then(({ data }) => {
+              this.props.addPayment(newPayment);
+              this.props.history.goBack();
+            })
+            .catch(console.error);
+        })
+        .catch(console.error);
+    } else {
+      Alert.alert('Campos no validos');
+    }
+  };
+
   render() {
     return (
       <View>
@@ -47,16 +109,50 @@ class NewCard extends React.Component {
         <View style={layout.login}>
           <Heading style={styles.heading}>Agrega una nueva tarjeta</Heading>
 
-          <CardPreview style={styles.cardpreview} info={this.state.card} />
+          <CardPreview style={styles.cardpreview} info={this.state} />
 
-          <Textfield style={styles.field} placeholder="4 digitos de tarjeta" />
-          <Textfield style={styles.field} placeholder="Nombre del titular" />
+          <Textfield
+            style={styles.field}
+            placeholder="4 digitos de tarjeta"
+            value={this.state.number}
+            onChange={(value) => this.setState({ number: value })}
+          />
+          <Textfield
+            style={styles.field}
+            value={this.state.name}
+            placeholder="Nombre del titular"
+            onChange={(value) => this.setState({ name: value })}
+          />
+          <Textfield
+            style={styles.field}
+            value={this.state.type}
+            placeholder="Tipo de tarjeta"
+            onChange={(value) => this.updateCardType(value)}
+          />
 
-          <Button block>Agregar tarjeta</Button>
+          <Button onPress={() => this.submitCard()} block>
+            Agregar tarjeta
+          </Button>
         </View>
       </View>
     );
   }
 }
 
-export default NewCard;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    payments: state.payments,
+    imgTypeCards: state.imgTypeCards,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPayments: (tickets) => dispatch(getPayments(tickets)),
+    getImgTypeCards: (cards) => dispatch(getImgTypeCards(cards)),
+    addPayment: (card) => dispatch(addPayment(card)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCard);

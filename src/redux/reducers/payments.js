@@ -1,5 +1,6 @@
 import { type as getPaymentsType } from '~/redux/actions/getPayments';
 import { type as deletePaymentType } from '~/redux/actions/deletePayment';
+import { type as addPaymentType } from '~/redux/actions/addPayment';
 
 const initialState = [];
 
@@ -8,8 +9,9 @@ function reducer(state = initialState, { type, payload }) {
     case getPaymentsType:
       return payload;
     case deletePaymentType:
-      let payments = state.filter((item) => item.id !== payload);
-      return payments;
+      return state.filter((item) => item.id !== payload);
+    case addPaymentType:
+      return [...state, payload];
     default:
       return state;
   }
