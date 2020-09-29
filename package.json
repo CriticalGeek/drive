@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "link": "react-native link",
-    "server": "json-server --watch server/db.json",
+    "server": "json-server --watch db.json",
     "test": "jest",
     "lint": "eslint ."
   },
