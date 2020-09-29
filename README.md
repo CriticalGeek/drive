@@ -6,19 +6,17 @@ if you just want to see how it works you can see [this loom video](https://www.l
 
 ## Table of content
 
-- Figma Mockup
-- Getting started
+- 🌠 Figma Mockup
+- 💻 Getting started
   - First steps
   - Connecting the database
   - How to run the project
 
-## Figma Mockup
+## 🌠 Figma Mockup
 
 You can check the figma initial mockup [here](https://www.figma.com/file/GJJah95zIfoZq6IIvcdDUX/drive?node-id=0%3A1):
 
-Image...
-
-## Getting started
+## 💻 Getting started
 
 For run this project you will need [yarn](https://yarnpkg.com), [react native cli](https://reactnative.dev/docs/0.9/getting-started) and [Android studio](https://developer.android.com/studio) installed on your computer.
 
@@ -75,8 +73,6 @@ Run the project
 From android studio run the project on your virtual device. if you need help you can consult the [react native cli quickstart](https://reactnative.dev/docs/0.5/getting-started).
 
 And voila, you should be able to see the application running on the virtual device
-
-Imagen...
 
 ---
 
