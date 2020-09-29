@@ -16,8 +16,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      email: '1',
-      password: '1',
+      email: '',
+      password: '',
     };
 
     this.resetState = this.resetState.bind(this);
