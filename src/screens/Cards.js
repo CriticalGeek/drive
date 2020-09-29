@@ -110,7 +110,7 @@ class Tickets extends React.Component {
             onPress={() => this.props.history.push('/new-card')}
             outlined
           >
-            + Agregar nueva tarjeta
+            Agregar nueva tarjeta
           </Button>
         </View>
       </View>

@@ -50,8 +50,7 @@ class Signup extends React.Component {
         axios
           .get('/users')
           .then(({ data }) => {
-            let usersLenght = data.length - 1;
-            let newId = usersLenght > 0 ? data[usersLenght].id + 1 : 1;
+            let newId = data.length > 0 ? data[data.length - 1].id + 1 : 1;
 
             let user = {
               id: newId,

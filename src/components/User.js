@@ -6,6 +6,7 @@ import styles from '~/scss/components/user.scss';
 
 import Heading from './Heading';
 import Text from './Text';
+import Icon from './Icon';
 
 export default withRouter(({ user, history }) => {
   return (
@@ -19,7 +20,7 @@ export default withRouter(({ user, history }) => {
       </View>
 
       <TouchableOpacity onPress={() => history.push('/login')}>
-        <Heading>E</Heading>
+        <Icon name="exit-outline" />
       </TouchableOpacity>
     </View>
   );

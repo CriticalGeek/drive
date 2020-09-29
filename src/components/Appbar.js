@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-native';
 import styles from '~/scss/components/appbar.scss';
 
 import Heading from './Heading';
+import Icon from './Icon';
 
 export default withRouter((props) => {
   var backward = <View style={styles.button} />;
@@ -15,7 +16,7 @@ export default withRouter((props) => {
         style={styles.button}
         onPress={() => props.history.goBack()}
       >
-        <Heading>B</Heading>
+        <Icon name="chevron-back" />
       </TouchableOpacity>
     );
   }

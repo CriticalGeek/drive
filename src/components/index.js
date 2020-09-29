@@ -8,6 +8,7 @@ import Textfield from './Textfield';
 import Ticket from './Ticket';
 import User from './User';
 import CardPreview from './CardPreview';
+import Icon from './Icon';
 
 export {
   Appbar,
@@ -20,4 +21,5 @@ export {
   Ticket,
   User,
   CardPreview,
+  Icon,
 };

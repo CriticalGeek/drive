@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Image } from 'react-native';
 
 import styles from '~/scss/components/card.scss';
 
-import Heading from './Heading';
+import Icon from './Icon';
 import Text from './Text';
 
 export default ({ item, onDelete, style }) => {
@@ -20,7 +20,7 @@ export default ({ item, onDelete, style }) => {
       </View>
 
       <TouchableOpacity onPress={() => onDelete()}>
-        <Heading>D</Heading>
+        <Icon name="trash-outline" />
       </TouchableOpacity>
     </View>
   );

@@ -67,8 +67,7 @@ class NewCard extends React.Component {
       axios
         .get('/payments')
         .then(({ data }) => {
-          let paymentsLenght = data.length - 1;
-          let newId = paymentsLenght > 0 ? data[paymentsLenght].id + 1 : 1;
+          let newId = data.length > 0 ? data[data.length - 1].id + 1 : 1;
           let typeId = 1;
 
           let types = this.props.imgTypeCards.find(
@@ -89,7 +88,7 @@ class NewCard extends React.Component {
 
           axios
             .post('/payments', newPayment)
-            .then(({ data }) => {
+            .then(() => {
               this.props.addPayment(newPayment);
               this.props.history.goBack();
             })
